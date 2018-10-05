@@ -1,0 +1,85 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style>
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            li.item {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 10px;
+                padding: 10px;
+                border: 1px #9b559b solid;
+            }
+
+            img.movie-photo {
+                max-width: 150px;
+                max-height: 150px;
+                margin-right: 5px;
+                /* border: 1px blue solid; */
+            }
+            .movie-title {
+                margin: 0;
+                padding: 0;
+            }
+            .movie-description{
+                padding: 10px 0;
+                /* border: 1px green solid; */
+            }
+
+            .movie-details {
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Filmes!</h1>
+            <ul class="list">
+            </ul>
+        </div>
+    </body>
+    <script type="text/javascript">
+        const movies = [
+            {
+                title: "A Freira",
+                description: "Presa em um convento na Romênia, uma freira comete suicídio. Para investigar o caso, o Vaticano envia um padre assombrado e uma noviça prestes a se tornar freira. Arriscando suas vidas, a fé e até suas almas, os dois descobrem um segredo profano e se confrontam com uma força do mal que toma a forma de uma freira demoníaca e transforma o convento em um campo de batalha.",
+                photosrc: "http://t0.gstatic.com/images?q=tbn:ANd9GcQi9gpXlV_tLug_NWT1kv6SMKJ7EHMteCPl7eUAMmUXBcri2ldJ"
+            },
+            {
+                title: "Divertida Mente",
+                description: "Com a mudança para uma nova cidade, as emoções de Riley, que tem apenas 11 anos de idade, ficam extremamente agitadas. Uma confusão na sala de controle do seu cérebro deixa a Alegria e a Tristeza de fora, afetando a vida de Riley radicalmente.",
+                photosrc: "http://t3.gstatic.com/images?q=tbn:ANd9GcRfHd-mM9MgWeQNmyKNg-dKuNcCaNVP8EOstPbFLz-JaBdIZ8wA"
+            },
+            {
+                title: "O predador",
+                description: "Um filme muito legal que a minha esposa prometeu ir ver comigo mas até agora nem tchu-í-ú",
+                photosrc: "https://www.comboinfinito.com.br/principal/wp-content/uploads/2017/01/predador-filme-790x444.jpg"
+            }
+        ]
+
+        const list = document.querySelector('ul.list');
+    
+        list.innerHTML += movies.reduce((acc, {photosrc, title, description}) => {
+            acc += `
+                <li class="item">
+                    <h2 class="movie-title">${title}</h2>
+                    <div class="movie-details">
+                        <img src=${photosrc} class="movie-photo"/>
+                        <div class="movie-description">${description}</div>
+                    </div>
+                </li>
+            `;
+
+            return acc;
+
+        }, '');
+        
+    </script>
+</html>
+
